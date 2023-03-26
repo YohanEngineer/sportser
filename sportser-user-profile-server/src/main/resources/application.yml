@@ -1,0 +1,17 @@
+server:
+  port: 8085
+spring:
+  application.name: user-profile-server
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  profiles:
+    active: int
+
+

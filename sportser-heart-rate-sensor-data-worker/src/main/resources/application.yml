@@ -1,0 +1,11 @@
+server:
+  port: 8082
+spring:
+  application.name: heart-rate-sensor-data-worker
+  profiles:
+    active: int
+rabbitmq:
+  producing-queue: emergency-data-collector
+  consuming-queue: hr-data-collector
+
+

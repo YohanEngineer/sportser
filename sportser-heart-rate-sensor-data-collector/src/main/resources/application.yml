@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  application.name: heart-rate-sensor-data-collector
+  profiles:
+    active: int
+rabbitmq:
+  queue: hr-data-collector
+
+

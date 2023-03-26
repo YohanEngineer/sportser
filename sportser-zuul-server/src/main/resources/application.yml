@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: zuul-server
+  profiles:
+    active: int
+
+server:
+  port: 9004
+
+zuul:
+  routes:
+    heart-rate-sensor-data-collector.path: /epi-sport/api/sensor/hr/**
+    heart-rate-sensor-data-collector.serviceId: heart-rate-sensor-data-collector
+
+    notification-channel-manager: /epi-sport/api/notification/**
+    notification-channel-manager.serviceId: notification-channel-manager
+    sensitiveHeaders: Cookie, Set-Cookie,Authorization
+
+
+ribbon:
+  eureka:
+    enabled: false

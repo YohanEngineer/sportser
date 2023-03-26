@@ -1,0 +1,9 @@
+server:
+  port: 9084
+spring:
+  application:
+    name: notification-channel-manager
+  profiles:
+    active: int
+rabbitmq:
+  queue: notification-channel

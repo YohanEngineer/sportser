@@ -1,0 +1,14 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.2:8761/eureka
+
+redis:
+  host: 192.168.1.7
+  port: 6379
+
+spring:
+  rabbitmq:
+    host: 192.168.1.50
+    username: guest
+    password: guest

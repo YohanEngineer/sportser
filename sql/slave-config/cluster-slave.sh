@@ -1,0 +1,8 @@
+mysql -u toto -p
+
+CHANGE MASTER TO
+MASTER_HOST='192.168.1.20',
+MASTER_USER='slave',
+MASTER_LOG_FILE='mysql-bin.000002',
+MASTER_LOG_POS=447;
+start slave;
