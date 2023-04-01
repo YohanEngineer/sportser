@@ -1,7 +1,10 @@
+spring:
+  kafka:
+      bootstrap-servers: localhost:9092
+
+topic: hr-data-collector
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
-
-rabbit:
-  host: localhost
