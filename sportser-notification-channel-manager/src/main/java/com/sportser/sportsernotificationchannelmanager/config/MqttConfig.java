@@ -10,7 +10,7 @@ public class MqttConfig implements MqttCallback {
     private static IMqttClient instance;
 
     public static IMqttClient getInstance() {
-        String brokerAddressIp = "tcp://172.31.253.175:1883";
+        String brokerAddressIp = "tcp://localhost:1883";
         log.info("Configuration with url : " + brokerAddressIp);
         try {
             instance = new MqttClient(brokerAddressIp,"notification-channel-manager",null);

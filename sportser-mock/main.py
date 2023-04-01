@@ -4,7 +4,7 @@ import random
 import requests
 import time
 
-URL = "http://172.31.253.175:9004/epi-sport/api/sensor/hr"
+URL = "http://localhost:9004/epi-sport/api/sensor/hr"
 
 emailList = ["duff.downey@gmail.com","rosanne.de_michetti@gmail.com","arnaldo.barrington@gmail.com","paddie.steers@gmail.com","saedella.lamacraft@gmail.com","risa.theseira@gmail.com","antonio.lumber@gmail.com","duane.mariet@gmail.com",
              "charisse.feartherby@gmail.com","natale.jakoubek@gmail.com","levin.gregol@gmail.com","laverne.gabites@gmail.com","teodoro.baffin@gmail.com","maure.gilpin@gmail.com",
