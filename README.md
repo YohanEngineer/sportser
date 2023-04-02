@@ -1,4 +1,4 @@
-# Projet Sportser, Auteurs : Mehdi KOUMAD, Cédric FAY, Anas Altundag
+# Projet Sportser, Auteurs : Mehdi KOUMAD, Cédric FAY, Anas Altundag, Yohan BOUALI, Selim Bouhassatine
 
 Projet dans le cadre du cours d'architectures distribuées ING3 
 
@@ -25,7 +25,7 @@ Le projet "network-configuration" contient actuellement l'ensemble des règles I
 Les différentes queues utilisées avec RabbitMq : 
     - emergency-data-collector : contient les email des sportifs avec une fréquence cardiaque élevé ainsi que cette dernière  
     - hr-data-collector : contient la fréquence cardiaque des sportifs (avec leur email)
-    - notification-channel : contient l'association coach-sportif des sportifs qui ont une fréquence cardiaque élevé
+    - notification-channel : contient l'association coach-sportif des sportifs qui ont une fréquence cardiaque élevée
 
 Afin de stocker les messages lorsque les coachs ne sont pas connectés, on utilise Redis.
 On utilise deux caches, un premier qui permet de stocker les messages remontés par la file "notification-channel" en attente d'être envoyés aux coach concernés et un second cache qui permet de stocker les identifiants des coach actuellement connectés (avec un timeout de 10minutes), les rendant donc éligible à la réception de messages via MQTT.
@@ -34,3 +34,7 @@ Norme en matière de messagerie IoT : MQTT. Protocole de communication ayant pou
 
 Le project sportser-coach est le projet mobile pour les coachs. Ce projet permet de visualiser les notifications qui arrivent en cas d'urgence. 
 
+## Version 2
+
+Dans cette seconde version, Selim et Yohan ont repris le code de la version 1 et ont enlevé RabbitMQ et pour utiliser Kafka à la place.
+Kafka permettant de gérer l'event sourcing, il a été décidé de l'utiliser pour la version 2. Nous avons donc supprimé l'utilisation du cache Redis puisque Kafka permet de stocker les messages en attente d'être envoyés aux coachs.
