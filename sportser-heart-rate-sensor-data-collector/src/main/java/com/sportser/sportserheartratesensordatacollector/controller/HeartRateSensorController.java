@@ -1,6 +1,6 @@
 package com.sportser.sportserheartratesensordatacollector.controller;
 
-        import com.sportser.sportserheartratesensordatacollector.dto.HeartRateUserDto;
+        import com.sportser.common.dto.HeartRateUserDto;
         import com.sportser.sportserheartratesensordatacollector.services.KafkaProducerService;
         import lombok.extern.slf4j.Slf4j;
         import org.springframework.beans.factory.annotation.Autowired;

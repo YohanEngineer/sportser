@@ -9,12 +9,23 @@ spring:
       host: localhost
       port: 27017
       database: sportser
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+      username: toto
+      password: password
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic-emergency: emergency-data-collector
+    topic-consume: hr-data-collector
+    consumer:
+      group-id: emergency-service
+      properties:
+        spring.json.trusted.packages: "*"
+
+    producer:
+      group-id: emergency-service
+      properties:
+        spring.json.trusted.packages: "*"
 
 
 address:
   user-profile: localhost
+

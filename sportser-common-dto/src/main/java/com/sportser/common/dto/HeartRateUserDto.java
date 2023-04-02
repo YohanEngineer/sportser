@@ -1,6 +1,7 @@
-package com.sportser.sportserheartratesensordataworker.dto;
+package com.sportser.common.dto;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
@@ -14,7 +15,7 @@ import java.sql.Timestamp;
 @ToString
 @EqualsAndHashCode
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class,property = "@id",scope = HeartRateUserDto.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "userEmail")
 public class HeartRateUserDto implements Serializable {
 
     private String userEmail;

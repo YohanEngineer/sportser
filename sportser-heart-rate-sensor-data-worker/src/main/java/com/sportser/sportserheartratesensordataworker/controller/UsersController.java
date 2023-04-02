@@ -1,6 +1,6 @@
 package com.sportser.sportserheartratesensordataworker.controller;
 
-import com.sportser.sportserheartratesensordataworker.dto.HeartRateUserDto;
+import com.sportser.common.dto.HeartRateUserDto;
 import com.sportser.sportserheartratesensordataworker.model.Users;
 import com.sportser.sportserheartratesensordataworker.services.UsersService;
 import org.springframework.web.bind.annotation.PostMapping;

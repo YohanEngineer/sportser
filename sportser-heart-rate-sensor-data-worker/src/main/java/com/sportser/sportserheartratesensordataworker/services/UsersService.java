@@ -1,11 +1,12 @@
 package com.sportser.sportserheartratesensordataworker.services;
 
-import com.sportser.sportserheartratesensordataworker.dto.HeartRateUserDto;
+import com.sportser.common.dto.HeartRateUserDto;
 import com.sportser.sportserheartratesensordataworker.dto.UserDto;
 import com.sportser.sportserheartratesensordataworker.model.Users;
 import com.sportser.sportserheartratesensordataworker.repositories.UsersRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -15,13 +16,13 @@ public class UsersService {
     private final UsersRepository usersRepository;
     private final WebClient webClient;
     private final Environment environment;
-    private RabbitMQProducerService rabbitMQProducerService;
+    private KafkaProducerService kafkaProducerService;
 
-    public UsersService(UsersRepository usersRepository, WebClient webClient, Environment environment, RabbitMQProducerService rabbitMQProducerService) {
+    public UsersService(UsersRepository usersRepository, WebClient webClient, Environment environment, KafkaProducerService kafkaProducerService) {
         this.usersRepository = usersRepository;
         this.webClient = webClient;
         this.environment = environment;
-        this.rabbitMQProducerService = rabbitMQProducerService;
+        this.kafkaProducerService = kafkaProducerService;
     }
 
     public Boolean checkSubscribing(String email) {
@@ -47,7 +48,7 @@ public class UsersService {
             if (checkSubscribing(heartRateUserDto.getUserEmail())) {
                 UserDto userDto = getUser(heartRateUserDto.getUserEmail());
                 if (checkEmergency(heartRateUserDto.getHeartRate(), userDto)) {
-                    rabbitMQProducerService.sendMessage(heartRateUserDto);
+                    kafkaProducerService.sendMessage(heartRateUserDto);
                 }
             }
             return usersRepository.save(new Users(heartRateUserDto.getUserEmail(), heartRateUserDto.getHeartRate(), heartRateUserDto.getTime()));

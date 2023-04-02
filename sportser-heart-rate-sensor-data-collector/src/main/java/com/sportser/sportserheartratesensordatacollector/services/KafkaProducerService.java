@@ -1,7 +1,7 @@
 package com.sportser.sportserheartratesensordatacollector.services;
 
 import com.sportser.sportserheartratesensordatacollector.config.KafkaConfig;
-import com.sportser.sportserheartratesensordatacollector.dto.HeartRateUserDto;
+import com.sportser.common.dto.HeartRateUserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
