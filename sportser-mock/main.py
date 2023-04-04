@@ -6,10 +6,37 @@ import time
 
 URL = "http://localhost:9004/epi-sport/api/sensor/hr"
 
-emailList = ["duff.downey@gmail.com","rosanne.de_michetti@gmail.com","arnaldo.barrington@gmail.com","paddie.steers@gmail.com","saedella.lamacraft@gmail.com","risa.theseira@gmail.com","antonio.lumber@gmail.com","duane.mariet@gmail.com",
-             "charisse.feartherby@gmail.com","natale.jakoubek@gmail.com","levin.gregol@gmail.com","laverne.gabites@gmail.com","teodoro.baffin@gmail.com","maure.gilpin@gmail.com",
-             "marie-ann.funnell@gmail.com","tuner.waitland@gmail.com","reube.delooze@gmail.com","shara.denisyev@gmail.com","leah.sedgeman@gmail.com","angelo.haggeth@gmail.com",
-             "caresa.tottman@gmail.com","andriana.coolbear@gmail.com","kit.henken@gmail.com","andras.durning@gmail.com","osborne.janak@gmail.com","ange.losbie@gmail.com","christen.kytter@gmail.com"]
+emailList = [
+    "chastity.ivanyuskin@gmail.com",
+    "bettina.bosch@gmail.com",
+    "duff.downey@gmail.com",
+    "rosanne.de_michetti@gmail.com",
+    "arnaldo.barrington@gmail.com",
+    "paddie.steers@gmail.com",
+    "saedella.lamacraft@gmail.com",
+    "risa.theseira@gmail.com",
+    "weidar.voysey@gmail.com",
+    "antonio.lumber@gmail.com",
+    "duane.mariet@gmail.com",
+    "wolfie.halwood@gmail.com",
+    "charisse.feartherby@gmail.com",
+    "natale.jakoubek@gmail.com",
+    "levin.gregol@gmail.com",
+    "laverne.gabites@gmail.com",
+    "lea.kardos@gmail.com",
+    "teodoro.baffin@gmail.com",
+    "maure.gilpin@gmail.com",
+    "marie-ann.funnell@gmail.com",
+    "dilan.hurburt@gmail.com",
+    "tuner.waitland@gmail.com",
+    "reube.delooze@gmail.com",
+    "shara.denisyev@gmail.com",
+    "claudia.vasilischev@gmail.com",
+    "leah.sedgeman@gmail.com",
+    "angelo.haggeth@gmail.com",
+    "gretna.gaynsford@gmail.com",
+    "caresa.tottman@gmail.com"
+]
 
 
 n = 60
@@ -20,3 +47,5 @@ while(n>0):
         print(json.dumps(HeartRateMeasurement, separators=(',', ':')))
     time.sleep(10)
     n-=1
+
+

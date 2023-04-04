@@ -23,7 +23,7 @@ Le projet "sql" concerne les données de la base de données et le cluster de ty
 Le projet "network-configuration" contient actuellement l'ensemble des règles Iptables sur le firewall permettant d'accéder aux différents services (par exemple: interface web de RabbitMQ ou accès à Gitlab)
 
 Les différentes queues utilisées avec RabbitMq : 
-    - emergency-data-collector : contient les email des sportifs avec une fréquence cardiaque élevé ainsi que cette dernière  
+    - emergency-data-collector : contient les emails des sportifs avec une fréquence cardiaque élevé ainsi que cette dernière  
     - hr-data-collector : contient la fréquence cardiaque des sportifs (avec leur email)
     - notification-channel : contient l'association coach-sportif des sportifs qui ont une fréquence cardiaque élevée
 

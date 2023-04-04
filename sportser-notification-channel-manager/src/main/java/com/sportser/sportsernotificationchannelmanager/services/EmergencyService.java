@@ -1,7 +1,6 @@
 package com.sportser.sportsernotificationchannelmanager.services;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-import com.sportser.sportsernotificationchannelmanager.dto.EmergencyDto;
+import com.sportser.common.dto.EmergencyDto;
 import com.sportser.sportsernotificationchannelmanager.redis.model.Emergency;
 import com.sportser.sportsernotificationchannelmanager.redis.model.Registration;
 import com.sportser.sportsernotificationchannelmanager.redis.repo.EmergencyRepository;

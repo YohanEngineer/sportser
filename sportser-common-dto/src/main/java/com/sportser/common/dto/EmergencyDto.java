@@ -1,4 +1,4 @@
-package com.sportser.sportsernotificationchannelmanager.dto;
+package com.sportser.common.dto;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @ToString
 @EqualsAndHashCode
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class,property = "@id",scope = EmergencyDto.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "emailCoach",scope = EmergencyDto.class)
 public class EmergencyDto implements Serializable {
 
     private String emailCoach;

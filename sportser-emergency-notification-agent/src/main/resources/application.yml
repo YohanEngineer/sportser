@@ -15,5 +15,5 @@ spring:
     active: int
 rabbitmq:
   consuming-queue: emergency-data-collector
-  producing-queue: notification-channel
+
 
