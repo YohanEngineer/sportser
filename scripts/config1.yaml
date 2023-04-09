@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - data:/data
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    networks:
+      - sportser-network
+  cache-redis:
+    image: redis:6.2-alpine
+    container_name: cache-redis
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - cache:/data
+    networks:
+      - sportser-network
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: toto
+      MYSQL_USER: toto
+      MYSQL_PASSWORD: toto
+      MYSQL_DATABASE: sportser
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - sportser-network
+
+  kafka:
+    image: my-kafka-zookeeper
+    container_name: kafka
+    ports:
+      - 9092:9092
+      - 2181:2181
+    depends_on:
+      - mongodb
+    networks:
+      - sportser-network
+
+  mqtt-server:
+    image: eclipse-mosquitto
+    container_name: mqtt-server
+    ports:
+      - 1883:1883
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    depends_on:
+      - mongodb
+    networks:
+      - sportser-network
+
+networks:
+  sportser-network:
+
+volumes:
+  data: { }
+  mysql-data:
+  cache:
+    driver: local

@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  user-profile:
+    image: user-profile
+    container_name: user-profile
+    ports:
+      - 8085:8085
+    command: --spring.profiles.active=localhost
+    networks:
+      - sportser-network
+
+  data-collector:
+    image: data-collector
+    container_name: data-collector
+    ports:
+      - 8081:8081
+    depends_on:
+      - user-profile
+    command: --spring.profiles.active=localhost
+    networks:
+      - sportser-network
+
+  data-worker:
+    image: data-worker
+    container_name: data-worker
+    ports:
+      - 8082:8082
+    depends_on:
+      - data-collector
+    command: --spring.profiles.active=localhost
+    networks:
+      - sportser-network
+
+  emergency-agent:
+    image: emergency-agent
+    container_name: emergency-agent
+    ports:
+      - 8800:8800
+    depends_on:
+      - data-worker
+    command: --spring.profiles.active=localhost
+    networks:
+      - sportser-network
+
+  notification-manager:
+    image: notification-manager
+    container_name: notification-manager
+    ports:
+      - 9084:9084
+    environment:
+      - SPRING_REDIS_HOST=cache-redis
+    depends_on:
+      - emergency-agent
+    command: --spring.profiles.active=localhost
+    networks:
+      - sportser-network
+
+#  mock:
+#    image: mock
+#    container_name: mock
+#    depends_on:
+#      - notification-manager
+#    networks:
+#      - sportser-network
+
+networks:
+  sportser-network:

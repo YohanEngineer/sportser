@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.sportser</groupId>
     <artifactId>sportser-heart-rate-sensor-data-worker-1</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>sportser-heart-rate-sensor-data-worker-1</name>
     <description>sportser-heart-rate-sensor-data-worker-1</description>
     <properties>

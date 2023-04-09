@@ -3,6 +3,7 @@ package com.sportser.sportsernotificationchannelmanager.redis.config;
 import com.sportser.sportsernotificationchannelmanager.redis.queue.MessagePublisher;
 import com.sportser.sportsernotificationchannelmanager.redis.queue.RedisMessagePublisher;
 import com.sportser.sportsernotificationchannelmanager.redis.queue.RedisMessageSubscriber;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,9 +22,15 @@ import org.springframework.data.redis.serializer.GenericToStringSerializer;
 @EnableRedisRepositories(basePackages = "com.sportser.sportsernotificationchannelmanager.redis.repo")
 public class RedisConfig {
 
+    @Value("${redis.host}")
+    private String redisHost;
+
+    @Value("${redis.port}")
+    private int redisPort;
+
     @Bean
     RedisConnectionFactory redisConnectionFactory() {
-        return new LettuceConnectionFactory();
+        return new LettuceConnectionFactory(redisHost, redisPort);
     }
 
     @Bean

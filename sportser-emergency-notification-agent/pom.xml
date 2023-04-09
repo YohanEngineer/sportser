@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.sportser</groupId>
     <artifactId>sportser-emergency-notification-agent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>sportser-emergency-notification-agent</name>
     <description>sportser-emergency-notification-agent</description>
     <properties>

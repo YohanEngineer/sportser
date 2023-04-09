@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.sportser</groupId>
     <artifactId>sportser-notification-channel-manager</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>sportser-notification-channel-manager</name>
     <description>sportser-notification-channel-manager</description>
     <properties>
