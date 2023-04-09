@@ -64,6 +64,25 @@ services:
     networks:
       - sportser-network
 
+  server-discovery:
+    image: server-discovery
+    container_name: server-discovery
+    ports:
+      - 8761:8761
+    networks:
+      - sportser-network
+
+  zuul-server:
+    image: zuul-server
+    container_name: zuul-server
+    ports:
+      - 9004:9004
+    depends_on:
+      - server-discovery
+    command: --spring.profiles.active=localhost
+    networks:
+      - sportser-network
+
 networks:
   sportser-network:
 
