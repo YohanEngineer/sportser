@@ -42,3 +42,50 @@ Kafka permettant de gérer l'event sourcing, il a été décidé de l'utiliser p
 Voici à quoi ressemble l'architecture de la version 2 :
 
 ![Architecture version 2](Architecture.png)
+
+
+## Lancer le projet
+
+### Prérequis
+
+- Docker
+- Docker-compose
+- Maven
+- Java 8
+- Git
+- Android Studio
+
+### Lancement
+
+- Cloner le projet
+- Se placer dans le dossier racine du projet
+- Lancer la commande suivante qui permet de build les projets
+    
+    ```bash
+    mvn clean install -DskipTests
+    ```
+- Lancer la commande suivante pour créer les images docker
+    
+    ```bash
+    docker build -t server-discovery sportser-server-discovery/.
+    docker build -t zuul-server sportser-zuul-server/.
+    docker build -t user-profile sportser-user-profile-server/.
+    docker build -t data-collector sportser-heart-rate-sensor-data-collector/.
+    docker build -t data-worker sportser-heart-rate-sensor-data-worker/.
+    docker build -t emergency-agent sportser-emergency-notification-agent/.
+    docker build -t notification-manager sportser-notification-channel-manager/.
+    docker build -t my-kafka-zookeeper kafka-configuration/.
+    ```
+- Lancer la commande suivante qui permet de lancer les containers
+    
+  ```bash
+  cd scripts
+  docker-compose --file config.yaml up -d
+  docker-compose --file startup.yaml up -d
+  ```
+
+- Lancer Android Studio et ouvrir le projet sportser-coach
+- Lancer le projet sur un émulateur ou un téléphone Android
+- Se connecter avec un compte coach
+- S'abonner 
+- Attendre les notifications
