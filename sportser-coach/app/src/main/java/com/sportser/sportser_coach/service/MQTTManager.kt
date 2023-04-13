@@ -13,7 +13,7 @@ class MQTTManager(val context: Context) {
 
     private val _message = MutableLiveData<String>()
     var message : LiveData<String> = _message
-    private var host = "tcp://172.28.143.171:1883"
+    private var host = "tcp://192.168.1.245:1883"
     private var clientId = "kotlin-client"
 
     private var client =

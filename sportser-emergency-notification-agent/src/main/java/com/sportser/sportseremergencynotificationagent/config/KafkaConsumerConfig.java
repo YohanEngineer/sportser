@@ -21,6 +21,9 @@ public class KafkaConsumerConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
+    @Value("${spring.kafka.consumer.group-id}")
+    private String groupId;
+
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, HeartRateUserDto> kafkaListenerContainerFactory(ConsumerFactory<String, HeartRateUserDto> consumerFactory) {
         ConcurrentKafkaListenerContainerFactory<String, HeartRateUserDto> factory = new ConcurrentKafkaListenerContainerFactory<>();
@@ -37,7 +40,7 @@ public class KafkaConsumerConfig {
         props.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, JsonDeserializer.class);
         props.put(JsonDeserializer.VALUE_DEFAULT_TYPE, com.sportser.common.dto.HeartRateUserDto.class);
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "emergency-notification-agent");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
 
 
         return new DefaultKafkaConsumerFactory<>(props);

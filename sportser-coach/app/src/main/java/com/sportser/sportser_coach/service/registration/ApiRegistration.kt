@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 object ApiRegistration {
 
-    private const val base_url = "http://172.28.143.171:9004/epi-sport/api/notification/"
+    private const val base_url = "http://192.168.1.245:9004/epi-sport/api/notification/"
 
     private var apiRegistrationInterface: ApiRegistrationInterface? = null
 

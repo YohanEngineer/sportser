@@ -1,17 +1,14 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://server-discovery:8761/eureka
-
-
 spring:
   kafka:
     bootstrap-servers: kafka:9092
     consumer:
       group-id: notification-channel-group
-      auto-offset-reset: earliest
       topic: notification-channel
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://server-discovery:8761/eureka
 
 redis:
   host: cache-redis

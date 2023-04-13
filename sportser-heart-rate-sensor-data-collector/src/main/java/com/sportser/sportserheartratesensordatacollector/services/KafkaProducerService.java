@@ -16,7 +16,7 @@ public class KafkaProducerService {
     }
 
     public void sendMessage(HeartRateUserDto heartRateUserDto) {
-        kafkaConfig.kafkaTemplate().send(kafkaConfig.topicName(), heartRateUserDto);
+        kafkaConfig.kafkaTemplate().send(kafkaConfig.getKafkaTopicConsume(), heartRateUserDto);
         System.out.println("Sent message to Kafka: " + heartRateUserDto);
     }
 }

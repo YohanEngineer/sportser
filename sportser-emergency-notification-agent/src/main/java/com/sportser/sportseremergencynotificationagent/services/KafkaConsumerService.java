@@ -19,13 +19,13 @@ public class KafkaConsumerService {
         this.kafkaProducerService = kafkaProducerService;
     }
 
-    @KafkaListener(topics = "${spring.kafka.topic-consume}", groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "${spring.kafka.consumer.topic}",
+            groupId = "${spring.kafka.consumer.group-id}",
+            containerFactory = "kafkaListenerContainerFactory")
     public void receiveMessage(HeartRateUserDto heartRateUserDto) {
         EmergencyDto emergencyDto = usersRepository.findUserAndCoach(heartRateUserDto.getUserEmail());
         emergencyDto.setTime(heartRateUserDto.getTime());
         emergencyDto.setHeartRate(heartRateUserDto.getHeartRate());
-
         kafkaProducerService.sendMessage(emergencyDto);
-        log.info("Received Message from TOPIC emergency-data-collector");
     }
 }

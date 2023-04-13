@@ -1,8 +1,9 @@
 spring:
   kafka:
       bootstrap-servers: kafka:9092
-
-topic: hr-data-collector
+      consumer:
+        group-id: hr-data
+        topic: hr-data-collector
 
 eureka:
   client:

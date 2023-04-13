@@ -20,6 +20,11 @@ public class KafkaConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
+    @Value("${spring.kafka.consumer.topic}")
+    private String kafkaTopicConsume;
+
+    @Value("${spring.kafka.producer.topic}")
+    private String kafkaTopicProduce;
 
     @Bean
     public ProducerFactory<String, EmergencyDto> producerFactory() {
@@ -33,6 +38,16 @@ public class KafkaConfig {
     @Bean
     public KafkaTemplate<String, EmergencyDto> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
+    }
+
+    @Bean
+    public String getKafkaTopicConsume() {
+        return kafkaTopicConsume;
+    }
+
+    @Bean
+    public String getKafkaTopicProduce() {
+        return kafkaTopicProduce;
     }
 
 }

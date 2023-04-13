@@ -1,9 +1,12 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://server-discovery:8761/eureka
-
 spring:
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: hr-data
+      topic: hr-data-collector
+    producer:
+      group-id: emergency-data
+      topic: emergency-data-collector
   data:
     mongodb:
       host: mongodb
@@ -11,20 +14,11 @@ spring:
       database: sportser
       username: toto
       password: password
-  kafka:
-    bootstrap-servers: kafka:9092
-    topic-emergency: emergency-data-collector
-    topic-consume: hr-data-collector
-    consumer:
-      group-id: emergency-service
-      properties:
-        spring.json.trusted.packages: "*"
 
-    producer:
-      group-id: emergency-service
-      properties:
-        spring.json.trusted.packages: "*"
-
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://server-discovery:8761/eureka
 
 address:
   user-profile: user-profile

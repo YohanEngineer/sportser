@@ -42,10 +42,14 @@ emailList = [
 n = 60
 while(n>0):
     for email in emailList:
-        HeartRateMeasurement = {"userEmail":email,"heartRate":random.randint(150,250),"time":datetime.now().strftime("%Y-%m-%dT%H:%M:%S")}
+        current_time=datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+        dt = datetime.strptime(current_time, "%Y-%m-%dT%H:%M:%S")
+        timestamp = int(dt.timestamp() * 1000)
+        HeartRateMeasurement = {"userEmail":email,"heartRate":random.randint(150,250),"time":current_time}
         r = requests.post(url=URL, data=json.dumps(HeartRateMeasurement, separators=(',', ':')),headers={'Content-Type': 'application/json'})
+        HeartRateMeasurement = {"userEmail":email,"heartRate":random.randint(150,250),"time":current_time, "timestamp":timestamp}
         print(json.dumps(HeartRateMeasurement, separators=(',', ':')))
-    time.sleep(10)
+    time.sleep(20)
     n-=1
 
 
