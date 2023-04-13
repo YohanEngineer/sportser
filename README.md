@@ -82,6 +82,8 @@ Voici à quoi ressemble l'architecture de la version 2 :
   cd scripts
   docker-compose --file config.yaml up -d
   docker-compose --file startup.yaml up -d
+  cd ../sportser-mock
+  python3 main.py
   ```
 
 - Lancer Android Studio et ouvrir le projet sportser-coach
