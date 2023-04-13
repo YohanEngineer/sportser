@@ -37,4 +37,8 @@ Le project sportser-coach est le projet mobile pour les coachs. Ce projet permet
 ## Version 2
 
 Dans cette seconde version, Selim et Yohan ont repris le code de la version 1 et ont enlevé RabbitMQ et pour utiliser Kafka à la place.
-Kafka permettant de gérer l'event sourcing, il a été décidé de l'utiliser pour la version 2. Nous avons donc supprimé l'utilisation du cache Redis puisque Kafka permet de stocker les messages en attente d'être envoyés aux coachs.
+Kafka permettant de gérer l'event sourcing, il a été décidé de l'utiliser pour la version 2. On utilisera MongoDB pour stocker les données reçues dans les topics Kafka.
+
+Voici à quoi ressemble l'architecture de la version 2 :
+
+![Architecture version 2](Architecture.png)
